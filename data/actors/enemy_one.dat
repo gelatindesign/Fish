@@ -17,7 +17,8 @@ Sprites
 	enemies/one/one.png
 	enemies/one/two.png
 
-# Animation States - StateName NumFrames[,FramesPerSecond]
+# Animation States
+# - StateName NumFrames[,FramesPerSecond]
 States
 	IdleLeft 1
 	IdleRight 1

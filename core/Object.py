@@ -1,9 +1,12 @@
 from helpers.Vector2D import *
+from Sprite import Sprite, AnimatedSprite
 
 ###
 # Object
 ###
 class Object( ):
+	sprite = None
+
 	def __init__( self ):
 		pass
 

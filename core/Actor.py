@@ -1,5 +1,8 @@
 from Object import MoveableObject
 from Event import Event, EventListener
+from Sprite import Sprite, AnimatedSprite
+
+import Debug
 
 ###
 # Actor
@@ -47,8 +50,10 @@ class ControlledActor( Actor ):
 	def __init__( self, name, control_map ):
 		self.name = name
 		self.control_map = control_map
+		self.sprite = AnimatedSprite( )
 
 class ControlledActorListener( EventListener ):
 	def notify( self, event ):
-		if isinstance( event, ActorActionRequest):
-			Debug( "ControlledActorListener" )
+		if isinstance( event, ActorActionRequest ):
+			#Debug.log( "ControlledActorListener" )
+			pass

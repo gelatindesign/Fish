@@ -1,4 +1,4 @@
-from Debug import Debug
+import Debug
 
 ###
 # Event
@@ -11,6 +11,17 @@ class Event( ):
 
 class EventListener( ):
 	pass
+
+###
+# Basic Events
+###
+class TickEvent( Event ):
+	def __init__( self, event ):
+		self.name = "Tick Event"
+
+class AlertEvent( Event ):
+	def __init__( self, event ):
+		self.name = "Alert Event"
 
 ###
 # EventManager
@@ -29,8 +40,8 @@ class EventManager( ):
 		pass
 
 	def post( self, event ):
-		#if not isInstance( event, TickEvent ):
-		Debug( "Event: " + event.name )
+		if not isinstance( event, TickEvent ):
+			Debug.log( "Event: " + event.name )
 
 		# Event is broadcast to all listeners
 		for listener in self.listeners:

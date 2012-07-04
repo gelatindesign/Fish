@@ -1,17 +1,22 @@
 import pygame
-from core.Event import Event
-from core.Control import KeyboardController, MouseController, KeyboardInputEvent, MouseInputEvent
+import Config
+
+from Event import Event, AlertEvent
+from Control import KeyboardController, MouseController, KeyboardInputEvent, MouseInputEvent
+from Actor import ControlledActor, ControlledActorListener
+
+import Debug
 
 ###
 # Game
 ###
 class Game( ):
 	run = None
-	config = []
+	em = None
+	screen = None
 	players = []
 	
-	def __init__( self, screen, em ):
-		self.screen = screen
+	def __init__( self, em ):
 		self.run = True
 
 		# Event Manager
@@ -33,15 +38,21 @@ class Game( ):
 			elif e.type == pygame.MOUSEBUTTONDOWN or e.type == pygame.MOUSEBUTTONUP or e.type == pygame.MOUSEMOTION:
 				self.em.post( MouseInputEvent(e) )
 
+		Config.screen.fill( (0,0,0) )
+
+		Debug.renderTrack( )
+
+		pygame.display.flip( )
+
 	def addPlayer( self, player_name, actor_type, controls_file ):
-		if len( self.players ) < self.config.max_players:
+		if len( self.players ) < Config.max_players:
 			#control_map = ControlMap( controls_file )
 			#actor = actor_type( control_map )
-			actor = ControllableActor( )
+			actor = ControlledActor( player_name, False )
 			self.players.append( [player_name, actor] )
 			self.em.registerListener( ControlledActorListener() )
 		else:
-			EventHandler.post( AlertEvent(
+			self.em.post( AlertEvent(
 				"You have already reached the maximum number of players"
 			))
 			return False

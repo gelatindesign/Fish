@@ -1,6 +1,7 @@
 from Event import Event, EventListener
 from Actor import ActorActionRequest
-from Debug import Debug
+
+import Debug
 
 ###
 # Controller
