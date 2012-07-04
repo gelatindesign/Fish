@@ -21,5 +21,6 @@ def track( key, message ):
 		track_values[key] = message
 
 def renderTrack( ):
-	message = "".join( [m + ": " + `track_values[m]` for m in track_values] )
-	track_text.render( Config.screen, [Config.screen_size[0]-200, 20], message )
+	if Config.show_debug_track:
+		message = "".join( [m + ": " + `track_values[m]` for m in track_values] )
+		track_text.render( Config.screen, [Config.screen_size[0]-200, 20], message )
