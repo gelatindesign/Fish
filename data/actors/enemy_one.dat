@@ -1,0 +1,27 @@
+# Actor Control
+Control AI
+Team Enemy
+
+# General Stats
+Health 10
+Melee 5
+
+# Items this actor can hold
+CanHold Null
+
+# Items this actor can spawn with
+SpawnWith Null
+
+# Sprite variations
+Sprites
+	enemies/one/one.png
+	enemies/one/two.png
+
+# Animation States - StateName NumFrames[,FramesPerSecond]
+States
+	IdleLeft 1
+	IdleRight 1
+	MoveLeft 2
+	MoveRight 2
+	MeleeLeft 4
+	MeleeRight 4

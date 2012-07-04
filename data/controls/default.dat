@@ -1,0 +1,9 @@
+# Default Controls - Action Controller_KeyInt
+
+MoveLeft Key_238
+MoveRight Key_239
+MoveUp Key_140
+MoveDown Key_160
+FirePrimary Mouse_1
+FireSecondary Mouse_2
+FireTertiary Mouse_3
