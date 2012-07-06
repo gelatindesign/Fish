@@ -6,8 +6,9 @@ import Debug
 # 	by an object and sent to the EventManager
 ###
 class Event( ):
-	def __init__( self ):
-		self.name = "Generic Event"
+	name = "Generic Event"
+	def __init__( self, data=None ):
+		self.data = data
 
 class EventListener( ):
 	pass
@@ -22,6 +23,7 @@ class TickEvent( Event ):
 class AlertEvent( Event ):
 	def __init__( self, event ):
 		self.name = "Alert Event"
+		Debug.log( event )
 
 ###
 # EventManager

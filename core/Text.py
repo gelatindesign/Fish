@@ -32,7 +32,7 @@ class Text( ):
 		# Check text is dirty (has changed) before creating surface
 		if self.dirty:
 			# Render text to a surface
-			self.surface = self.font.render( text, self.anti_alias, self.color )
+			self.surface = self.font.render( unicode(text), self.anti_alias, self.color )
 			self.rect = self.surface.get_rect( )
 
 			# Position rect

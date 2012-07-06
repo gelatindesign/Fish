@@ -1,6 +1,7 @@
 from Object import MoveableObject
 from Event import Event, EventListener
 from Sprite import Sprite, AnimatedSprite
+from helpers import DataFile
 
 import Debug
 
@@ -32,16 +33,18 @@ class ControlMap( ):
 	keyboard_map = None
 	mouse = None
 	mouse_map = None
+	data = None
 
 	def __init__( self, file ):
-		f = DataFileParser( file )
-		if f.keyboard:
+		self.file = "data/controls/" + file + ".yml"
+		self.data = DataFile.loadYAML( self.file )
+		'''if f.keyboard:
 			self.keyboard = KeyboardController
 			self.keyboard_map = f.keyboard
 		
 		if f.mouse:
 			self.mouse = MouseController
-			self.mouse_map = f.mouse
+			self.mouse_map = f.mouse'''
 
 class ControlledActor( Actor ):
 	name = None
@@ -57,3 +60,14 @@ class ControlledActorListener( EventListener ):
 		if isinstance( event, ActorActionRequest ):
 			#Debug.log( "ControlledActorListener" )
 			pass
+
+
+###
+# Player
+###
+class Player( ControlledActor ):
+
+	def __init__( self, name, control_map ):
+		ControlledActor.__init__( self, name, control_map )
+
+		self.data = DataFile.loadYAML( "data/actors/player.yml" )

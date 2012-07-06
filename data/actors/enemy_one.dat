@@ -14,8 +14,8 @@ SpawnWith Null
 
 # Sprite variations
 Sprites
-	enemies/one/one.png
-	enemies/one/two.png
+	enemies/one_one.png
+	enemies/one_two.png
 
 # Animation States
 # - StateName NumFrames[,FramesPerSecond]

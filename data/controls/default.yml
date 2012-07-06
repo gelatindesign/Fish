@@ -1,0 +1,8 @@
+# Default Controls
+MoveUp: [keyboard, 119]
+MoveLeft: [keyboard, 97]
+MoveDown: [keyboard, 115]
+MoveRight: [keyboard, 100]
+FirePrimary: [mouse, 1]
+FireSecondary: [mouse, 2]
+FireTertiary: [mouse, 3]

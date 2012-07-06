@@ -3,7 +3,7 @@ import Config
 
 from Event import Event, AlertEvent
 from Control import KeyboardController, MouseController, KeyboardInputEvent, MouseInputEvent
-from Actor import ControlledActor, ControlledActorListener
+from Actor import ControlMap, Player, ControlledActorListener
 
 import Debug
 
@@ -23,8 +23,8 @@ class Game( ):
 		self.em = em
 
 		# Register Control Listeners
-		self.em.registerListener( KeyboardController(self) )
-		self.em.registerListener( MouseController(self) )
+		self.em.registerListener( KeyboardController() )
+		self.em.registerListener( MouseController() )
 
 	def tick( self ):
 		for e in pygame.event.get( ):
@@ -44,11 +44,11 @@ class Game( ):
 
 		pygame.display.flip( )
 
-	def addPlayer( self, player_name, actor_type, controls_file ):
+	def addPlayer( self, player_name, controls_file ):
 		if len( self.players ) < Config.max_players:
 			#control_map = ControlMap( controls_file )
 			#actor = actor_type( control_map )
-			actor = ControlledActor( player_name, False )
+			actor = Player( player_name, ControlMap("default") )
 			self.players.append( [player_name, actor] )
 			self.em.registerListener( ControlledActorListener() )
 		else:

@@ -14,13 +14,20 @@ def log( message ):
 # @desc Used for continuous messages in game
 ###
 track_values = {}
-track_text = Text( )
-track_text.anti_alias = True
+#track_text = Text( )
+#track_text.anti_alias = True
 def track( key, message ):
 	if Config.show_debug_track:
 		track_values[key] = message
 
 def renderTrack( ):
 	if Config.show_debug_track:
-		message = "".join( [m + ": " + `track_values[m]` for m in track_values] )
-		track_text.render( Config.screen, [Config.screen_size[0]-200, 20], message )
+		#message = "".join( [m + ": " + `track_values[m]` for m in track_values] )
+		#track_text.render( Config.screen, [Config.screen_size[0]-200, 20], message )
+
+		y = 20
+		for key in track_values:
+			t = Text( )
+			t.anti_alias = True
+			t.render( Config.screen, [20, y], key + ": " + unicode(track_values[key]) )
+			y += 20

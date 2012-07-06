@@ -8,6 +8,9 @@
 import core.Config
 
 # Import External Libraries
+# - NumPy > http://numpy.scipy.org/
+# - PyGame > http://pygame.org
+# - PyYAML > http://pyyaml.org
 import pygame
 
 # Initialise External Objects
@@ -23,16 +26,15 @@ import core.Debug
 # Initialise Core Objects
 
 event_manager = EventManager( )
-game = Game( event_manager )
+core.Config.game = Game( event_manager )
 
 # Global Settings
 
-game.addPlayer( "TestPlayer", 0, 0 )
-game.addPlayer( "Blah", 0, 0 )
+core.Config.game.addPlayer( "Jeff", 0 )
 
 # --- Main Game Loop --- #
-while game.run:
-	game.tick( )
+while core.Config.game.run:
+	core.Config.game.tick( )
 
 # Exit
 print "Application Terminated"

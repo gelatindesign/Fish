@@ -1,0 +1,26 @@
+###
+# Player Data
+###
+
+# Actor Control
+Control: Player
+Team: Player
+
+# General Stats
+BaseHealth: 10
+BaseMelee: 2
+
+# Items this actor can hold
+CanHold: None
+
+# Items this actor can spawn with
+SpawnWith: None
+
+# Sprite variations
+Sprites:
+    one: player/player.png
+
+# Animation States
+# - StateName: NumFrames[,FramesPerSecond]
+States:
+    IdleLeft: 1
