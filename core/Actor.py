@@ -53,7 +53,6 @@ class ControlledActor( Actor ):
 	def __init__( self, name, control_map ):
 		self.name = name
 		self.control_map = control_map
-		self.sprite = AnimatedSprite( )
 
 class ControlledActorListener( EventListener ):
 	def notify( self, event ):
@@ -71,3 +70,5 @@ class Player( ControlledActor ):
 		ControlledActor.__init__( self, name, control_map )
 
 		self.data = DataFile.loadYAML( "data/actors/player.yml" )
+
+		self.sprite = AnimatedSprite( self.data['Sprites']['one'] )
