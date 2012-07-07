@@ -1,0 +1,13 @@
+h1. Fish
+
+_A game about fish in python built with PyGame_
+
+h2. Resources
+
+h3. Software
+
+* Sublime Text 2
+
+h2. Credits
+
+* list here
